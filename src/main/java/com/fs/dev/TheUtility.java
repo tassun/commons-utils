@@ -1,5 +1,11 @@
 package com.fs.dev;
 
+/**
+ * TheUtility class handle for various utilities methods
+ * 
+ * @author ADMIN
+ *
+ */
 public class TheUtility {
 
 	/**
@@ -30,10 +36,14 @@ public class TheUtility {
 	/**
 	 * To compare two calendar with date in format yyyyMMdd
 	 * the returning value is the following <br>
-	 * -1 -> aCalendar is less than bCalendar <br>
-	 *  0 -> aCalendar is equal to bCalendar <br>
-	 *  1 -> aCalendar is greater than bCalendar <br>
+	 * -1 - aCalendar is less than bCalendar <br>
+	 *  0 - aCalendar is equal to bCalendar <br>
+	 *  1 - aCalendar is greater than bCalendar <br>
 	 * and if aCalendar or bCalendar is null it's return -99
+	 * 
+	 * @param aCalendar java.util.Calendar
+	 * @param bCalendar java.util.Calendar
+	 * @return int
 	 */
 	public static int compareDate(java.util.Calendar aCalendar,java.util.Calendar bCalendar) {
 		if((aCalendar==null) && (bCalendar==null)) {
@@ -53,10 +63,14 @@ public class TheUtility {
 	/**
 	 * To compare two date with date in format yyyyMMdd
 	 * the returning value is the following <br>
-	 * -1 -> aDate is less than bDate <br>
-	 *  0 -> aDate is equal to bDate <br>
-	 *  1 -> aDate is greater than bDate <br>
+	 * -1 - aDate is less than bDate <br>
+	 *  0 - aDate is equal to bDate <br>
+	 *  1 - aDate is greater than bDate <br>
 	 * and if aDate or bDate is null it's return -99
+	 * 
+	 * @param aDate java.util.Date
+	 * @param bDate java.util.Date
+	 * @return int
 	 */
 	public static int compareDate(java.util.Date aDate,java.util.Date bDate) {
 		if((aDate==null) && (bDate==null)) {
@@ -76,10 +90,14 @@ public class TheUtility {
 	/**
 	 * To compare two time with time in format hh:mm:ss
 	 * the returning value is the following <br>
-	 * -1 -> aTime is less than bTime <br>
-	 *  0 -> aTime is equal to bTime <br>
-	 *  1 -> aTime is greater than bTime <br>
+	 * -1 - aTime is less than bTime <br>
+	 *  0 - aTime is equal to bTime <br>
+	 *  1 - aTime is greater than bTime <br>
 	 * and if aTime or bTime is null it's return -99
+	 * 
+	 * @param aTime java.sql.Time
+	 * @param bTime java.sql.Time
+	 * @return int
 	 */
 	public static int compareTime(java.sql.Time aTime,java.sql.Time bTime) {
 		if((aTime==null) && (bTime==null)) {
@@ -99,10 +117,14 @@ public class TheUtility {
 	/**
 	 * To compare two time with timestamp in format yyyy-MM-dd HH:mm:ss
 	 * the returning value is the following <br>
-	 * -1 -> aTimestamp is less than bTimestamp <br>
-	 *  0 -> aTimestamp is equal to bTimestamp <br>
-	 *  1 -> aTimestamp is greater than bTimestamp <br>
+	 * -1 - aTimestamp is less than bTimestamp <br>
+	 *  0 - aTimestamp is equal to bTimestamp <br>
+	 *  1 - aTimestamp is greater than bTimestamp <br>
 	 * and if aTimestamp or bTimestamp is null it's return -99
+	 * 
+	 * @param aTimestamp java.sql.Timestamp
+	 * @param bTimestamp java.sql.Timestamp
+	 * @return int
 	 */
 	public static int compareTimestamp(java.sql.Timestamp aTimestamp,java.sql.Timestamp bTimestamp) {
 		if((aTimestamp==null) && (bTimestamp==null)) {
@@ -119,6 +141,18 @@ public class TheUtility {
 		return atime.compareTo(btime);
 	}
 	
+	/**
+	 * To compare time stamp 
+	 * the returning value is the following <br>
+	 * -1 - aTimestamp is less than bTimestamp <br>
+	 *  0 - aTimestamp is equal to bTimestamp <br>
+	 *  1 - aTimestamp is greater than bTimestamp <br>
+	 * and if aTimestamp or bTimestamp is null it's return -99
+	 * 
+	 * @param aCalendar java.util.Calendar
+	 * @param bCalendar java.util.Calendar
+	 * @return int
+	 */
 	public static int compareTimestamp(java.util.Calendar aCalendar,java.util.Calendar bCalendar) {
 		if((aCalendar==null) && (bCalendar==null)) {
 			return 0;
@@ -135,6 +169,14 @@ public class TheUtility {
 		String btime = formatDateTime(bTimestamp,YMD_HMSPICTURE);	
 		return atime.compareTo(btime);		
 	}
+	
+	/**
+	 * To format date time specified by picture
+	 * 
+	 * @param date java.util.Date
+	 * @param picture pattern string
+	 * @return String
+	 */
 	public static String formatDateTime(java.util.Date date, String picture) {
 		if(date!=null) {
 			java.text.SimpleDateFormat dformat = getDateFormat(picture);
@@ -146,10 +188,21 @@ public class TheUtility {
 		return null;
 	}
 	
+	/**
+	 * To get calendar
+	 * 
+	 * @return java.util.Calendar
+	 */
 	public static java.util.Calendar getCalendar() {
 		return java.util.Calendar.getInstance(java.util.Locale.US);
 	}
 	
+	/**
+	 * To get calenar from java.util.Date
+	 * 
+	 * @param date java.util.Date
+	 * @return java.util.Calendar
+	 */
 	public static java.util.Calendar getCalendar(java.util.Date date) {
 		if(date==null) {
 			return null;
@@ -159,6 +212,12 @@ public class TheUtility {
 		return calendar;
 	}
 
+	/**
+	 * To get calendar from date string
+	 * 
+	 * @param date String
+	 * @return java.util.Calendar
+	 */
 	public static java.util.Calendar getCalendar(String date) {
 		if(date==null) {
 			return null;
@@ -190,16 +249,31 @@ public class TheUtility {
 		return parseCalendar(date);
 	}
 	
+	/**
+	 * To get current date
+	 * 
+	 * @return java.sql.Date
+	 */
 	public static java.sql.Date getCurrentDate() {
 		java.sql.Timestamp stamp = getCurrentTimestamp();
 		return new java.sql.Date(stamp.getTime());
 	}
 	
+	/**
+	 * To get current time
+	 * 
+	 * @return java.sql.Time
+	 */
 	public static java.sql.Time getCurrentTime() {
 		java.sql.Timestamp stamp = getCurrentTimestamp();
 		return new java.sql.Time(stamp.getTime());
 	}
 	
+	/**
+	 * To get current time stamp
+	 * 
+	 * @return java.sql.Timestamp
+	 */
 	public static java.sql.Timestamp getCurrentTimestamp() {
 		try {
 			java.time.Instant inst = java.time.Instant.now();
@@ -212,20 +286,38 @@ public class TheUtility {
 		return new java.sql.Timestamp(System.currentTimeMillis());
 	}
 	
+	/**
+	 * To get current time zone
+	 * 
+	 * @return java.util.TimeZone
+	 */
 	public static java.util.TimeZone getCurrentTimeZone() {
 		return java.util.TimeZone.getDefault();
 	}
 	
+	/**
+	 * To get current zone id
+	 * 
+	 * @return java.time.ZoneId
+	 */
 	public static java.time.ZoneId getCurrentZoneId() {
 		return java.time.ZoneId.systemDefault();
 	}
 	
+	/**
+	 * To create java.text.SimpleDateFormat instance specified by picture
+	 * 
+	 * @param picture pattern string
+	 * @return java.text.SimpleDateFormat
+	 */
 	public static java.text.SimpleDateFormat getDateFormat(String picture) {
 		return new java.text.SimpleDateFormat(picture,java.util.Locale.US);
 	}
 	
 	/**
 	 * Gets date from String DMY (dd/mm/yyyy)
+	 * 
+	 * @param dmy String in format dd/MM/yyyy
 	 * @return int
 	 */
 	public static int getDateFromDMY(String dmy) {
@@ -255,6 +347,8 @@ public class TheUtility {
 
 	/**
 	 * Gets date from String YMD (yyyymmdd)
+	 * 
+	 * @param ymd String in format yyyymmdd
 	 * @return int
 	 */
 	public static int getDateFromYMD(String ymd) {
@@ -269,6 +363,13 @@ public class TheUtility {
 		return 0;
 	}
 	
+	/**
+	 * To get day in month specified by month and year
+	 *  
+	 * @param month int
+	 * @param year int
+	 * @return int
+	 */
 	public static int getDayInMonth(int month,int year) {
 		switch(month+1) {
 			case 4 :
@@ -298,6 +399,12 @@ public class TheUtility {
 		return 0;
 	}
 
+	/**
+	 * To get day in month of java.util.Calendar
+	 * 
+	 * @param calendar java.util.Calendar
+	 * @return int
+	 */
 	public static int getDayInMonth(java.util.Calendar calendar) {
 		if(calendar==null) {
 			return 0;
@@ -307,6 +414,12 @@ public class TheUtility {
 		return getDayInMonth(month,year);
 	}
 	
+	/**
+	 * To get day in month of java.util.Date
+	 * 
+	 * @param date java.util.Date
+	 * @return int
+	 */
 	public static int getDayInMonth(java.util.Date date) {
 		if(date==null) {
 			return 0;
@@ -314,10 +427,23 @@ public class TheUtility {
 		return getDayInMonth(getCalendar(date));
 	}
 	
+	/**
+	 * To get only digits from string
+	 * 
+	 * @param source String
+	 * @return String
+	 */
 	public static String getDigits(String source) {
 		return getDigits(source,true);
 	}
 	
+	/**
+	 * To get only digits from string
+	 * 
+	 * @param source String
+	 * @param sign boolean
+	 * @return String
+	 */
 	public static String getDigits(String source,boolean sign) {
 		if(source!=null) {
 			StringBuilder buf = new StringBuilder();
@@ -336,6 +462,8 @@ public class TheUtility {
 	
 	/**
 	 * Gets month from String DMY (dd/mm/yyyy)
+	 * 
+	 * @param dmy String in format dd/MM/yyyy
 	 * @return int
 	 */
 	public static int getMonthFromDMY(String dmy) {
@@ -368,6 +496,8 @@ public class TheUtility {
 	
 	/**
 	 * Gets month from String YMD (yyyymmdd)
+	 * 
+	 * @param ymd String in format yyyymmdd
 	 * @return int
 	 */
 	public static int getMonthFromYMD(String ymd) {
@@ -384,6 +514,8 @@ public class TheUtility {
 	
 	/**
 	 * Gets year from String DMY (dd/mm/yyyy)
+	 * 
+	 * @param dmy String in format dd/MM/yyyy
 	 * @return int 
 	 */
 	public static int getYearFromDMY(String dmy) {
@@ -419,6 +551,8 @@ public class TheUtility {
 	
 	/**
 	 * Gets year from String YMD (yyyymmdd)
+	 * 
+	 * @param ymd String in format yyyymmdd
 	 * @return int
 	 */
 	public static int getYearFromYMD(String ymd) {
@@ -433,6 +567,12 @@ public class TheUtility {
 		return 0;
 	}
 	
+	/**
+	 * To check string is date
+	 * 
+	 * @param str String
+	 * @return boolean
+	 */
 	public static boolean isDate(String str) {
 		String delimiter = "";
 		if(str.trim().indexOf('/')>0 ) {
@@ -505,7 +645,13 @@ public class TheUtility {
 		}
 		return false;
 	}
-		
+	
+	/**
+	 * To parse string number to java.math.BigDecimal
+	 * 
+	 * @param value String
+	 * @return java.math.BigDecimal
+	 */
 	public static java.math.BigDecimal parseBigDecimal(String value) {
 		java.math.BigDecimal result = null;
 	   	String text = removeCommaText(value);
@@ -537,8 +683,8 @@ public class TheUtility {
 	/**
 	 * Gets calendar from date string
 	 * 
-	 * @return java.util.Calendar
 	 * @param date java.lang.String  must in format yyyyMMdd or dd/MM/yyyy or yyyy/MM/dd
+	 * @return java.util.Calendar
 	 */
 	public static java.util.Calendar parseCalendar(String date) {
 		if(date==null) {
@@ -712,6 +858,12 @@ public class TheUtility {
 		return calendar;
 	}
 	
+	/**
+	 * To parse string number to java.math.BigDecimal
+	 * 
+	 * @param value String only alpha numeric
+	 * @return java.math.BigDecimal
+	 */
 	public static java.math.BigDecimal parseDecimal(String value) {
 		java.math.BigDecimal result = null;
 	   	String text = removeCommaText(value);
@@ -740,6 +892,12 @@ public class TheUtility {
 	   	return result;
 	}
 	
+	/**
+	 * To parse string date to java.time.LocalDateTime
+	 * 
+	 * @param date String
+	 * @return java.time.LocalDateTime
+	 */
 	public static java.time.LocalDateTime parseLocalDateTime(String date) {
 		if(date==null) {
 			return null;
@@ -914,6 +1072,12 @@ public class TheUtility {
 		return result;
 	}
 	
+	/**
+	 * To parse string date to java.sql.Date
+	 * 
+	 * @param date string
+	 * @return java.sql.Date
+	 */
 	public static java.sql.Date parseSQLDate(String date) {
 		java.time.LocalDateTime localDateTime = parseLocalDateTime(date);
 		if(localDateTime!=null) {
@@ -923,6 +1087,12 @@ public class TheUtility {
 		return null;
 	}
 	
+	/**
+	 * To parse string time to java.sql.Time
+	 * 
+	 * @param times string
+	 * @return java.sql.Time
+	 */
 	public static java.sql.Time parseTime(String times) {
 		if(times!=null && times.trim().length()>0) {
 			java.sql.Time result = null;
@@ -985,6 +1155,13 @@ public class TheUtility {
 		return null;
 	}
 	
+	/**
+	 * To parse string time to java.sql.Time with specified picture 
+	 * 
+	 * @param times String
+	 * @param picture string pattern
+	 * @return java.sql.Time
+	 */
 	public static java.sql.Time parseTime(String times,String picture) {
 		if(picture==null || picture.trim().length()<=0) {
 			return parseTime(times);
@@ -998,6 +1175,12 @@ public class TheUtility {
 		return result;
 	}
 	
+	/**
+	 * To parse string timestamp to java.sql.Timestamp
+	 * 
+	 * @param timestamp String
+	 * @return java.sql.Timestamp
+	 */
 	public static java.sql.Timestamp parseTimestamp(String timestamp) {
 		java.util.Calendar calendar = getCalendar(timestamp);
 		if(calendar!=null) {
@@ -1006,6 +1189,12 @@ public class TheUtility {
 		return null;
 	}
 	
+	/**
+	 * To remove comma out of text
+	 * 
+	 * @param text String
+	 * @return String
+	 */
 	public static String removeCommaText(String text) {
 		if(text==null) {
 			return null;
@@ -1020,6 +1209,18 @@ public class TheUtility {
 	   	return result.toString();
 	}
 	
+	/**
+	 * To rolling date 
+	 * 
+	 * @param calendar java.util.Calendar
+	 * @param year int
+	 * @param month int
+	 * @param day int
+	 * @param hour int
+	 * @param minute int
+	 * @param second int
+	 * @return java.util.Calendar
+	 */
 	public static java.util.Calendar rollingDate(java.util.Calendar calendar,int year,int month,int day,int hour,int minute,int second) {
 		if(calendar!=null) {
 			int y = calendar.get(java.util.Calendar.YEAR);
@@ -1050,6 +1251,18 @@ public class TheUtility {
 		return calendar;
 	}
 	
+	/**
+	 * To rolling date
+	 * 
+	 * @param date java.util.Date
+	 * @param year int
+	 * @param month int
+	 * @param day int
+	 * @param hour int
+	 * @param minute int
+	 * @param second int
+	 * @return java.util.Date
+	 */
 	public static java.util.Date rollingDate(java.util.Date date,int year,int month,int day,int hour,int minute,int second) {
 		if(date!=null) {
 			java.util.Calendar calendar = getCalendar();
@@ -1060,11 +1273,29 @@ public class TheUtility {
 		return date;
 	}
 	
+	/**
+	 * To rolling time
+	 * 
+	 * @param time java.sql.Time
+	 * @param hour int
+	 * @param minute int
+	 * @param second int
+	 * @return java.sql.Time
+	 */
 	public static java.sql.Time rollingTime(java.sql.Time time,int hour,int minute,int second) {
 		java.util.Date date = rollingDate(time, 0, 0, 0, hour, minute, second);
 		return date==null?null:new java.sql.Time(date.getTime());
 	}
 	
+	/**
+	 * To rolling time
+	 * 
+	 * @param timestr string
+	 * @param hour int
+	 * @param minute int
+	 * @param second int
+	 * @return java.sql.Time
+	 */
 	public static java.sql.Time rollingTime(String timestr,int hour,int minute,int second) {
 		return rollingTime(parseTime(timestr),hour,minute,second);
 	}
